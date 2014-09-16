@@ -38,6 +38,7 @@
    });
 
    $klein->respond('GET', '/albums', function ($request, $response, $service) use ($smarty) {
+     include 'albums.php';
      $smarty->display('albums.tpl');
    });
 
