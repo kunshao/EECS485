@@ -24,10 +24,12 @@
    $klein->respond('GET', '/', function ($request, $response, $service) use ($smarty) {
     include 'db.php';
     $stmt = $pdo->query("SELECT username FROM Users");
+    $i = 0;
+    $username = array();
     while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
-      echo $row["username"];
-      echo '<br>';
+      $username[] = $row["username"];
     }
+    $smarty->assign('username', $username);
      $smarty->display('index.tpl');
    });
 
