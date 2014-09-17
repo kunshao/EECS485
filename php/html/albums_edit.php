@@ -15,14 +15,15 @@ ini_set('display_errors', 'On');
 
 if (isset($_GET['username']))
 {
-    $username = $request->id;
+    $username = $_GET['username'];
     // $username = htmlentities($_GET["username"]);
     $stmt = $pdo->query(
         "SELECT title
-         FROM Album"
+         FROM Album
+         WHERE username = '$username' "
         );
 
-echo('<table>'."\n");
+echo('<table border=0.3>'."\n");
     while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) 
     {
         echo "<tr><td>";
