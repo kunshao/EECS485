@@ -6,11 +6,12 @@
 	$stmt->execute(array(
         ':username' => $u_name));
     $album_title = array();
-    //$album_id = array();
+
     while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
     	$id = $row["albumid"];
-      $album_title[$id] = $row["title"];
+    $album_title[$id] = $row["title"];
     }
-    //$smarty->assign('album_id', $album_id);
+
     $smarty->assign('album_title', $album_title);
+
 ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-17 07:00:31
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-17 07:38:38
          compiled from "/Users/lingboguo/Desktop/EECS485/php/html/templates/templates/albums.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:20766874085418f8fe401d63-70470921%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a3aef4ec65ebbfccd7b6c0ac08113c68bfb01331' => 
     array (
       0 => '/Users/lingboguo/Desktop/EECS485/php/html/templates/templates/albums.tpl',
-      1 => 1410926493,
+      1 => 1410932281,
       2 => 'file',
     ),
     '13c0edc05b0e9eb60e7cc3549b0721908f7a28bf' => 
@@ -47,6 +47,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <p class="important">
  Welcome!
 </p>
+<?php if (isset($_smarty_tpl->tpl_vars['album_title']->value)){?>
 <?php if (count($_smarty_tpl->tpl_vars['album_title']->value)==0){?>
 <p>Empty Albums for <?php echo $_smarty_tpl->tpl_vars['user_id']->value;?>
 </p>
@@ -64,6 +65,7 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 <br>
 <a href="/albums/edit?username=<?php echo $_smarty_tpl->tpl_vars['user_id']->value;?>
 ">Edit the albums</a>
+<?php }?>
 <?php }?>
 
   </div>

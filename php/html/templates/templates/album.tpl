@@ -5,6 +5,7 @@
 <p class="important">
  Welcome!
 </p>
+{if isset($pic_url)}
 {if count($pic_url)==0}
 <p>This is an empty Album.</p>
 {else}
@@ -14,5 +15,6 @@
 {/foreach}
 <br>
 <a href="/album/edit?id={$album_id}">Edit photos</a>
+{/if}
 {/if}
 {/block}
