@@ -18,12 +18,12 @@ if (isset($_GET['username']))
     $username = $_GET['username'];
     // $username = htmlentities($_GET["username"]);
     $stmt = $pdo->query(
-        "SELECT title, albumid
+        "SELECT title
          FROM Album
          WHERE username = '$username' "
         );
 
-    echo('<table border=0.3>'."\n");
+echo('<table border=0.3>'."\n");
     while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) 
     {
         echo "<tr><td>";
@@ -38,20 +38,13 @@ if (isset($_GET['username']))
         echo("</td></tr>\n");
     }
 
-    echo ("</table>");
-
-    ?>
-    <form method="post">
-    New Album:  <input type="text"  name= "title">
-<!--     <input type="hidden" name ="username" value= "<?php echo $username?>" > -->
-    <input type="hidden" name ="username" value= "sportslover">
-    <input type="submit" name ="op" value ="add">
-    </form>
-
-    <?php
 }
 ?>
-
+</table>
+<form action="album_edit.php" method="get">
+New Album: <input type="text" name="album_name">
+<input type="submit" value="Add">
+</form>
 
 </body>
 </html>
