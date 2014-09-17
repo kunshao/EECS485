@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-17 05:03:08
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-17 07:29:40
          compiled from "/Developer/Workspace/EECS485/php/html/templates/templates/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5327978054179a0aadae90-22487591%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '18cb4524569537f71ff9a97b3b1962a2f33ab6b0' => 
     array (
       0 => '/Developer/Workspace/EECS485/php/html/templates/templates/index.tpl',
-      1 => 1410920482,
+      1 => 1410924371,
       2 => 'file',
     ),
     '94c5279065c052d6b4fb57b23b562087691fc151' => 
@@ -54,6 +54,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   		Welcome!
 	</p>
 	<p>This is Group 76's Photo Album!</p>
+	<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['username']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
+$_smarty_tpl->tpl_vars['item']->_loop = true;
+?>
+  		<a href="/albums?username=<?php echo $_smarty_tpl->tpl_vars['item']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['item']->value;?>
+</a>
+  		<br>
+	<?php } ?>
 	<footer>Test footer</footer>
 </body>
 
