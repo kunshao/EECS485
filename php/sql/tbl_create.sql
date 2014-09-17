@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS Album
 
 CREATE TABLE IF NOT EXISTS Photo
 (
-    picid int(40) NOT NULL,
+    picid varchar(40) NOT NULL,
     url varchar(255) NOT NULL,
     format char(3) NOT NULL,
     photodate datetime NOT NULL,
