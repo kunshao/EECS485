@@ -1,4 +1,4 @@
---- The below statements have been executed locally -----
+-- The below statements have been executed locally --
 
 INSERT INTO Users
 VALUES ('sportslover', 'Paul', 'Walker', 'test_password', 'sportslover@hotmail.com');
@@ -15,10 +15,10 @@ VALUES(2000, 'test_url', 'PEG', '2012-01-05 15:15:00');
 INSERT INTO Contain
 VALUES(1000, 2000, 'test_caption', 1);
 
---- The above statements have been executed locally -----
+-- The above statements have been executed locally --
 
 INSERT INTO Users
-VALUES ('traveler', 'Rebecca', 'Travolta', 'rebt@explorer.org');
+VALUES ('traveler', 'Rebecca', 'Travolta','test_password', 'rebt@explorer.org');
 
 INSERT INTO Users
-VALUES ('spacejunkie', 'Bob', 'Spacey', 'bspace@spacejunkies.net');
+VALUES ('spacejunkie', 'Bob', 'Spacey','test_password', 'bspace@spacejunkies.net');
