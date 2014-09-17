@@ -37,6 +37,17 @@ echo('<table border=0.3>'."\n");
         echo("\n</form>\n");
         echo("</td></tr>\n");
     }
+
 }
 ?>
 </table>
+<form action="album_edit.php" method="get">
+New Album: <input type="text" name="album_name">
+<input type="submit" value="Add">
+</form>
+
+</body>
+</html>
+
+
+
