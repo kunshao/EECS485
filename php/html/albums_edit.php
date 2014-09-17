@@ -41,8 +41,8 @@ echo('<table border=0.3>'."\n");
 }
 ?>
 </table>
-<form action="album_edit.php" method="get">
-New Album: <input type="text" name="album_name">
+<form action="add" method="post">
+New Album: <input type="text" name="title">
 <input type="submit" value="Add">
 </form>
 
