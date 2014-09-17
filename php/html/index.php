@@ -48,6 +48,10 @@
      $smarty->display('albums.tpl');
    });
 
+   $klein->respond('GET', '/albums/edit', function ($request, $response, $service) use ($smarty) {
+   include 'albums_edit.php';
+   });
+
 
    $klein->dispatch();
 
