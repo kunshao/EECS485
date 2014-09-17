@@ -22,6 +22,12 @@
    /* Define routes here */
 
    $klein->respond('GET', '/', function ($request, $response, $service) use ($smarty) {
+    include 'db.php';
+    $stmt = $pdo->query("SELECT username FROM Users");
+    while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
+      echo $row["username"];
+      echo '<br>';
+    }
      $smarty->display('index.tpl');
    });
 
