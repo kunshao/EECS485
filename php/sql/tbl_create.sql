@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Users
 
 CREATE TABLE IF NOT EXISTS Album 
 (
-    albumid int(40) NOT NULL,
+    albumid int(40) NOT NULL AUTO_INCREMENT,
     title varchar(50),
     created datetime NOT NULL,
     lastupdated datetime NOT NULL,
