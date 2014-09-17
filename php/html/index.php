@@ -46,7 +46,12 @@
    });
 
    $klein->respond('GET', '/albums', function ($request, $response, $service) use ($smarty) {
+     $smarty->display('albums.tpl');
+   });
+
+   $klein->respond('GET', '/albums\?username=[:userID]?', function ($request, $response, $service) use ($smarty) {
      include 'albums.php';
+     $smarty->assign('user_id', $request->userID);
      $smarty->display('albums.tpl');
    });
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-17 04:35:32
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-17 04:52:12
          compiled from "/Users/lingboguo/Desktop/EECS485/php/html/templates/templates/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6696493395418ec9f7be5b4-47238273%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '786be264bd0375c7cb1a5df251967ebb866649de' => 
     array (
       0 => '/Users/lingboguo/Desktop/EECS485/php/html/templates/templates/index.tpl',
-      1 => 1410921328,
+      1 => 1410922316,
       2 => 'file',
     ),
     '13c0edc05b0e9eb60e7cc3549b0721908f7a28bf' => 
