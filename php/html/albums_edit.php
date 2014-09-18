@@ -10,28 +10,34 @@ include 'db.php';
 
 
 <?php
-if(isset($_POST["title"])){
-    $t= $_POST['title'];
-
+if (isset($_POST["op"]))
+{
     switch ($_POST["op"]){
         case 'add':
-            $sql = "INSERT INTO Album (title, created, lastupdated, username) 
-                    VALUES (:title, :created, :lastupdated, :username)";
-            $stmt = $pdo->prepare($sql);
+            if(isset($_POST["title"])){
+                $t= $_POST['title'];
+                $sql = "INSERT INTO Album (title, created, lastupdated, username) 
+                        VALUES (:title, :created, :lastupdated, :username)";
+                $stmt = $pdo->prepare($sql);
 
-            $dt = date('Y-m-d H:i:s'); // NOW()
-            $stmt->execute(array(
-                ':title' => $t,
-                ':created' => $dt,
-                ':lastupdated' => $dt,
-                ':username' => "sportslover"
-                ));
+                $dt = date('Y-m-d H:i:s'); // NOW()
+                $stmt->execute(array(
+                    ':title' => $t,
+                    ':created' => $dt,
+                    ':lastupdated' => $dt,
+                    ':username' => "sportslover"
+                    ));
+            }
+
+
+            
             break;
-        
+
         default:
             # code...
             break;
     }
+
 
 
     // header( 'Location: /albums/edit?username=sportslover' ) ;
