@@ -28,7 +28,10 @@ if (isset($_POST["op"]))
                     ':lastupdated' => $dt,
                     ':username' => $username
                     ));
+                unset($_POST["title"]);
+                unset($_POST["username"]);
             }
+            unset($_POST["op"]);
             break;
 
         case 'delete':
@@ -40,8 +43,9 @@ if (isset($_POST["op"]))
                 $stmt->execute(array(
                     ':albumid' => $albumid
                     ));
+                unset($_POST["albumid"]);
             }
-
+            unset($_POST["op"]);
             break;
 
         default:
@@ -77,25 +81,28 @@ if (isset($_GET['username']))
     {
         echo "<tr><td>";
         echo(htmlentities($row['title']));
-        echo("</td><td>");
-        echo "Edit";
-        // echo('<a href="edit.php?id='.htmlentities($row['title']).'">Edit</a> / ');
-        echo("</td><td>");
-
-        // echo "Delete";
-        // echo('<a href="delete.php?id='.htmlentities($row['title']).'">Delete</a>');
         ?>
+        </td><td>
+
+        <form action="/album/edit" method="get">
+        <input type="hidden" name="id" value="<?php echo $row['albumid']?>" >
+        <input type="submit" value="edit">
+        </form>
+
+        </td><td>
+
         <form method="post">
         <input type="hidden" name ="albumid" value= "<?php echo $row['albumid']?>"> 
         <input type="submit" name ="op" value ="delete">
         </form>
 
-        <?php
+        </td></tr>
 
-        echo("</td></tr>\n");
+        <?php
     }
     ?>
     </table>
+
     <form method="post">
     New Album: <input type="text" name="title">
     <input type="hidden" name ="username" value= "<?php echo $username?>" >
