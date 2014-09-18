@@ -8,6 +8,38 @@ include 'db.php';
 <title>Edit Album</title>
 </head><body>
 
+
+<?php
+if(isset($_POST["title"])){
+    $t= $_POST['title'];
+
+    switch ($_POST["op"]){
+        case 'add':
+            $sql = "INSERT INTO Album (title, created, lastupdated, username) 
+                    VALUES (:title, :created, :lastupdated, :username)";
+            $stmt = $pdo->prepare($sql);
+
+            $dt = date('Y-m-d H:i:s'); // NOW()
+            $stmt->execute(array(
+                ':title' => $t,
+                ':created' => $dt,
+                ':lastupdated' => $dt,
+                ':username' => "sportslover"
+                ));
+            break;
+        
+        default:
+            # code...
+            break;
+    }
+
+
+    // header( 'Location: /albums/edit?username=sportslover' ) ;
+    // return;
+}
+?>
+
+
 <?php
 
 error_reporting(E_ALL);
@@ -23,7 +55,7 @@ if (isset($_GET['username']))
          WHERE username = '$username' "
         );
 
-echo('<table border=0.3>'."\n");
+    echo('<table border=0.3>'."\n");
     while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) 
     {
         echo "<tr><td>";
@@ -40,10 +72,14 @@ echo('<table border=0.3>'."\n");
 
 }
 ?>
+
+
 </table>
-<form action="add" method="post">
+<form method="post">
 New Album: <input type="text" name="title">
-<input type="submit" value="Add">
+<!--     <input type="hidden" name ="username" value= "<?php echo $username?>" > -->
+<input type="hidden" name ="username" value= "sportslover">
+<input type="submit" name ="op" value ="add">
 </form>
 
 </body>
