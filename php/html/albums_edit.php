@@ -14,18 +14,19 @@ if (isset($_POST["op"]))
 {
     switch ($_POST["op"]){
         case 'add':
-            if(isset($_POST["title"])){
-                $t= $_POST['title'];
+            if(isset($_POST["title"]) && isset($_POST["username"])){
+                $title= $_POST['title'];
+                $username = $_POST['username'];
                 $sql = "INSERT INTO Album (title, created, lastupdated, username) 
                         VALUES (:title, :created, :lastupdated, :username)";
                 $stmt = $pdo->prepare($sql);
 
                 $dt = date('Y-m-d H:i:s'); // NOW()
                 $stmt->execute(array(
-                    ':title' => $t,
+                    ':title' => $title,
                     ':created' => $dt,
                     ':lastupdated' => $dt,
-                    ':username' => "sportslover"
+                    ':username' => $username
                     ));
             }
             break;
@@ -93,17 +94,17 @@ if (isset($_GET['username']))
 
         echo("</td></tr>\n");
     }
+    ?>
+    </table>
+    <form method="post">
+    New Album: <input type="text" name="title">
+    <input type="hidden" name ="username" value= "<?php echo $username?>" >
+    <input type="submit" name ="op" value ="add">
+    </form>
+    <?php
 
 }
 ?>
-
-</table>
-<form method="post">
-New Album: <input type="text" name="title">
-<!--     <input type="hidden" name ="username" value= "<?php echo $username?>" > -->
-<input type="hidden" name ="username" value= "sportslover">
-<input type="submit" name ="op" value ="add">
-</form>
 
 </body>
 </html>
