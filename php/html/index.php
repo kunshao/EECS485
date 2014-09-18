@@ -65,14 +65,15 @@
 
       include 'albums_edit.php';
    });
-$klein->respond('POST', '/albums/edit[:id]?', function ($request, $response, $service) use ($smarty) {
+   
+  $klein->respond('POST', '/albums/edit[:id]?', function ($request, $response, $service) use ($smarty) {
 
-      include 'albums_edit.php';
-   });
-$klein->respond('POST', '/albums/add', function ($request, $response, $service) use ($smarty) {
+        include 'albums_edit.php';
+     });
+  $klein->respond('POST', '/albums/add', function ($request, $response, $service) use ($smarty) {
 
-      include 'add.php';
-   });
+        include 'add.php';
+     });
 
    $klein->dispatch();
 
