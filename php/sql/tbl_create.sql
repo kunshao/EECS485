@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS Photo
 CREATE TABLE IF NOT EXISTS Contain 
 (
     albumid int(40) NOT NULL,
-    picid int(40) NOT NULL,
+    picid varchar(40) NOT NULL,
     caption varchar(255),
     sequencenum int(40) NOT NULL,
     PRIMARY KEY (albumid, picid),
