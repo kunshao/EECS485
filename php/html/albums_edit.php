@@ -28,9 +28,19 @@ if (isset($_POST["op"]))
                     ':username' => "sportslover"
                     ));
             }
+            break;
 
+        case 'delete':
+            if (isset($_POST["albumid"])){
+                $albumid = $_POST['albumid'];
+                $sql = "DELETE FROM Album
+                        WHERE albumid = :albumid";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute(array(
+                    ':albumid' => $albumid
+                    ));
+            }
 
-            
             break;
 
         default:
@@ -56,7 +66,7 @@ if (isset($_GET['username']))
     $username = $_GET['username'];
     // $username = htmlentities($_GET["username"]);
     $stmt = $pdo->query(
-        "SELECT title
+        "SELECT title, albumid
          FROM Album
          WHERE username = '$username' "
         );
@@ -70,15 +80,22 @@ if (isset($_GET['username']))
         echo "Edit";
         // echo('<a href="edit.php?id='.htmlentities($row['title']).'">Edit</a> / ');
         echo("</td><td>");
-        echo "Delete";
+
+        // echo "Delete";
         // echo('<a href="delete.php?id='.htmlentities($row['title']).'">Delete</a>');
-        echo("\n</form>\n");
+        ?>
+        <form method="post">
+        <input type="hidden" name ="albumid" value= "<?php echo $row['albumid']?>"> 
+        <input type="submit" name ="op" value ="delete">
+        </form>
+
+        <?php
+
         echo("</td></tr>\n");
     }
 
 }
 ?>
-
 
 </table>
 <form method="post">
