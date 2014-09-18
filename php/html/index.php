@@ -52,8 +52,7 @@
    });
 
    $klein->respond('GET', '/album/edit\?id=[:albumID]?', function ($request, $response, $service) use ($smarty) {
-      echo "hiiiiii url";
-     // include 'album.php';
+     include 'album_edit.php';
      // $smarty->assign('album_id', $request->albumID);
      // $smarty->display('album.tpl');
    });

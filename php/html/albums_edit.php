@@ -52,11 +52,6 @@ if (isset($_POST["op"]))
             # code...
             break;
     }
-
-
-
-    // header( 'Location: /albums/edit?username=sportslover' ) ;
-    // return;
 }
 ?>
 
@@ -69,7 +64,6 @@ ini_set('display_errors', 'On');
 if (isset($_GET['username']))
 {
     $username = $_GET['username'];
-    // $username = htmlentities($_GET["username"]);
     $stmt = $pdo->query(
         "SELECT title, albumid
          FROM Album
