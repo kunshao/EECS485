@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Contain
     albumid int(40) NOT NULL,
     picid varchar(40) NOT NULL,
     caption varchar(255),
-    sequencenum int(40) NOT NULL,
+    sequencenum int(40) NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (albumid, picid),
     FOREIGN KEY (albumid) REFERENCES Album(albumid),
     FOREIGN KEY (picid) REFERENCES Photo(picid)
