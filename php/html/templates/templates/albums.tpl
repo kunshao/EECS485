@@ -14,7 +14,8 @@
   	<br>
 {/foreach}
 <br>
-<a href="/albums/edit?username={$user_id}">Edit the albums</a>
+<p><a href="/albums/edit?username={$user_id}">Edit the albums</a></p>
+<p><a href="/">Back to Index</a></p>
 {/if}
 {/if}
 {/block}
