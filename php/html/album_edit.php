@@ -11,6 +11,9 @@ include 'db.php';
 <?php
 if (isset($_POST["op"]))
 {
+    $date = new DateTime();
+    $now = $date->format('Y-m-d H:i:s');
+
     switch ($_POST["op"]){
         case 'add':
             if(isset($_POST["albumid"]) && isset($_FILES['uploadedfile'])){
@@ -52,6 +55,7 @@ if (isset($_POST["op"]))
                     ':sequencenum' => $sequencenum
                     ));
 
+                include 'updatetime.php';
                 unset($_POST["albumid"]);
                 unset($_FILES['uploadedfile']);
             }
@@ -94,6 +98,7 @@ if (isset($_POST["op"]))
                     echo "The photo has been deleted";
                 else
                     echo "There was an error deleting the file, please try again!";
+                include 'updatetime.php';
                 unset($_POST["albumid"]);
                 unset($_POST["picid"]);
             }

@@ -4,9 +4,6 @@ $path = $_FILES['uploadedfile']['name'];
 $info     = pathinfo($path);
 $filename = $info['filename'];
 $ext      = $info['extension'];
-
-$date = new DateTime();
-$now = $date->format('Y-m-d H:i:s');
 $picid   = md5($filename.$now);
 $url  = $dir.$picid.".".$ext;
 $target_path = "static".$url;
