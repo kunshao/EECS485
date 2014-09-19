@@ -154,8 +154,6 @@ if (isset($_GET['id']))
     Choose a picture to upload: <input type="file" name="uploadedfile"><br/>
     <input type="submit" value="Upload File">
 
-<!--     <input type="hidden" name ="albumid" value= "<?php echo $albumid?>" > -->
-<!--     <input type="submit" name ="op" value ="add"> -->
     </form>
     <?php
 
