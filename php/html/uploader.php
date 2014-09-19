@@ -1,11 +1,15 @@
 <?php
-$target_path = "static/pictures/";
+$dir = "pictures/";
 $path = $_FILES['uploadedfile']['name'];
-$target_path = $target_path.basename($path);
-
 $info     = pathinfo($path);
 $filename = $info['filename'];
 $ext      = $info['extension'];
+
+$date = new DateTime();
+$now = $date->format('Y-m-d H:i:s');
+$picid   = md5($filename.$now);
+$url  = $dir.$picid.".".$ext;
+$target_path = "static/".$url;
 
 if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)){
     echo "The file ".basename($_FILES['uploadedfile']['name'])." has been uploaded";

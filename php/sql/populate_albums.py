@@ -40,7 +40,7 @@ for p in pictures:
 	image_suffix = p.split('.')[1]
 	image_datetime = datetime.datetime.strptime(time.ctime(os.path.getctime(p)), "%a %b %d %H:%M:%S %Y")
 	image_picid = md5(p + str(image_datetime)).hexdigest()
-	image_url = '/pictures/%s.%s' % (image_picid, image_suffix)
+	image_url = 'pictures/%s.%s' % (image_picid, image_suffix)
 
 	add_image_cmd = photo_prefix + "'%s', '%s', '%s', '%s'" % \
 			(image_picid, image_url, "jpg", image_datetime) \

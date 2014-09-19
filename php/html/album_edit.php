@@ -16,13 +16,7 @@ if (isset($_POST["op"]))
             if(isset($_POST["albumid"]) && isset($_FILES['uploadedfile'])){
                 include 'uploader.php';
 
-                $albumid = $_POST['albumid'];                
-                $date = new DateTime();
-                $now = $date->format('Y-m-d H:i:s');
-
-                $picid   = md5($filename + $now);
-                $url     = "/pictures/".$picid.".".$ext;
-                
+                $albumid = $_POST['albumid'];                        
                 $sql = "SELECT MAX(sequencenum) AS MaxSequencenum
                         FROM Contain 
                         WHERE albumid = :albumid";
@@ -96,7 +90,10 @@ if (isset($_POST["op"]))
                     ':picid' => $picid
                     ));
 
-                unlink("/static".$delete_url);
+                if (unlink("static/".$delete_url))
+                    echo "The photo has been deleted";
+                else
+                    echo "There was an error deleting the file, please try again!";
                 unset($_POST["albumid"]);
                 unset($_POST["picid"]);
             }
