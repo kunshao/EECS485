@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-18 01:48:35
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 19:05:54
          compiled from "/Developer/Workspace/EECS485/php/html/templates/templates/albums.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:148273686554179cf94a3813-42692476%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bdd8ea3b45d33386fcd7b64d5e18e1d772927432' => 
     array (
       0 => '/Developer/Workspace/EECS485/php/html/templates/templates/albums.tpl',
-      1 => 1410985279,
+      1 => 1411104550,
       2 => 'file',
     ),
     '94c5279065c052d6b4fb57b23b562087691fc151' => 
@@ -63,8 +63,9 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
   	<br>
 <?php } ?>
 <br>
-<a href="/albums/edit?username=<?php echo $_smarty_tpl->tpl_vars['user_id']->value;?>
-">Edit the albums</a>
+<p><a href="/albums/edit?username=<?php echo $_smarty_tpl->tpl_vars['user_id']->value;?>
+">Edit the albums</a></p>
+<p><a href="/">Back to Index</a></p>
 <?php }?>
 <?php }?>
 

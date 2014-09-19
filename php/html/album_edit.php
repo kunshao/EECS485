@@ -13,16 +13,15 @@ if (isset($_POST["op"]))
 {
     switch ($_POST["op"]){
         case 'add':
-            if(isset($_POST["albumid"]) && isset($_POST["caption"])){
-                $albumid = $_POST['albumid'];
-                $caption = $_POST['caption'];
-                
+            if(isset($_POST["albumid"]) && isset($_FILES['uploadedfile'])){
+                include 'uploader.php';
+
+                $albumid = $_POST['albumid'];                
                 $date = new DateTime();
                 $now = $date->format('Y-m-d H:i:s');
 
-                $picid   = md5($caption.$now);
-                $type    = "jpg";
-                $url     = "/pictures/".$picid.".".$type;
+                $picid   = md5($filename + $now);
+                $url     = "/pictures/".$picid.".".$ext;
                 
                 $sql = "SELECT MAX(sequencenum) AS MaxSequencenum
                         FROM Contain 
@@ -44,7 +43,7 @@ if (isset($_POST["op"]))
                 $stmt->execute(array(
                     ':picid' => $picid,
                     ':url' => $url,
-                    ':format' => $type,
+                    ':format' => $ext,
                     ':photodate' => $now
                     ));
 
@@ -55,12 +54,12 @@ if (isset($_POST["op"]))
                 $stmt->execute(array(
                     ':albumid' => $albumid,
                     ':picid' => $picid,
-                    ':caption' => $caption,
+                    ':caption' => $filename,
                     ':sequencenum' => $sequencenum
                     ));
 
                 unset($_POST["albumid"]);
-                unset($_POST["caption"]);
+                unset($_FILES['uploadedfile']);
             }
             unset($_POST["op"]);
             break;
@@ -131,7 +130,6 @@ if (isset($_GET['id']))
     {
         echo "<tr><td>";
         echo(htmlentities($row['caption']));
-        echo(htmlentities($row['picid']));
         ?>
         </td><td>
 
@@ -148,7 +146,9 @@ if (isset($_GET['id']))
     ?>
     </table>
 
-    <form enctype= "multipart/form-data" action = "/uploader" method="post">
+    <form enctype= "multipart/form-data" method="post">
+    <input type="hidden" name ="albumid" value= "<?php echo $albumid?>" > 
+    <input type="hidden" name ="op" value ="add">   
     Choose a picture to upload: <input type="file" name="uploadedfile"><br/>
     <input type="submit" value="Upload File">
 
