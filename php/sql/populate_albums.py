@@ -17,10 +17,10 @@ def album_id(prefix):
 load_sql_f = open("test_load_data.sql","w")
 
 photo_prefix = 'INSERT INTO  Photo ( picid, url, format, photodate )\nVALUES ('
-photo_suffix = ')'
+photo_suffix = ');'
 
 contain_prefix = 'INSERT INTO  Contain ( albumid, picid, caption )\nVALUES ('
-contain_suffix = ')'
+contain_suffix = ');'
 
 os.chdir('../html/static/pictures/')
 pictures = os.listdir('.')
