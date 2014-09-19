@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 05:12:28
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 07:25:19
          compiled from "/Developer/Workspace/EECS485/php/html/templates/templates/album.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:33490046554179c642fa2b7-80829170%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ff5870b16653f4fe39f90c4a12f778456ad02f20' => 
     array (
       0 => '/Developer/Workspace/EECS485/php/html/templates/templates/album.tpl',
-      1 => 1411092431,
+      1 => 1411103556,
       2 => 'file',
     ),
     '94c5279065c052d6b4fb57b23b562087691fc151' => 
@@ -57,13 +57,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
   	<a href="/pic?id=<?php echo $_smarty_tpl->tpl_vars['item']->key;?>
-"><?php echo $_smarty_tpl->tpl_vars['item']->value;?>
-</a>
-  	<br>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['item']->value;?>
+" style="width:90px;"></a>
 <?php } ?>
 <br>
-<a href="/album/edit?id=<?php echo $_smarty_tpl->tpl_vars['album_id']->value;?>
-">Edit photos</a>
+<p><a href="/album/edit?id=<?php echo $_smarty_tpl->tpl_vars['album_id']->value;?>
+">Edit photos</a></p>
+<p><a href="/albums?username=<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+">Go back to albums</a></p>
 <?php }?>
 <?php }?>
 

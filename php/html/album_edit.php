@@ -16,20 +16,11 @@ if (isset($_POST["op"]))
             if(isset($_POST["albumid"]) && isset($_POST["caption"])){
                 $albumid = $_POST['albumid'];
                 $caption = $_POST['caption'];
-
-
-                // TODO: Need to fix md5 collision problem
-                echo $caption;
-                echo "\n";
                 
                 $date = new DateTime();
                 $now = $date->format('Y-m-d H:i:s');
 
-                echo $now;
-
                 $picid   = md5($caption.$now);
-                echo $picid;
-                echo "\n";
                 $type    = "jpg";
                 $url     = "/pictures/".$picid.".".$type;
                 
@@ -45,8 +36,6 @@ if (isset($_POST["op"]))
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 $max_sequencenum = $row['MaxSequencenum'];
                 $sequencenum = $max_sequencenum + 1;
-
-                echo $sequencenum;
 
                 $sql = "INSERT INTO Photo (picid, url, format, photodate) 
                         VALUES (:picid, :url, :format, :photodate)";
