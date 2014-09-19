@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # this file populates the load_data.sql with photos from the php/html/static/pictures
 
-from PIL import Image
 import os, sys
 import datetime, time
 from pymd5 import md5, padding
@@ -27,7 +26,6 @@ os.chdir('../html/static/pictures/')
 pictures = os.listdir('.')
 
 for p in pictures:
-	im = Image.open(p)
 	im_f = open(p)
 	
 	image_prefix = p.split('_')[0]
@@ -37,7 +35,7 @@ for p in pictures:
 	image_url = '/static/pictures/%s' % p
 
 	add_image_cmd = photo_prefix + "'%s', '%s', '%s', '%s'" % \
-			(image_picid, image_url, im.format, image_date) \
+			(image_picid, image_url, "JPG", image_date) \
 					+ photo_suffix
 
 	add_contain_cmd = contain_prefix + "'%s', '%s', '%s'" % \
