@@ -148,7 +148,7 @@ if (isset($_GET['id']))
     ?>
     </table>
 
-    <form enctype= "multipart/form-data" action = "uploader.php" method="post">
+    <form enctype= "multipart/form-data" action = "/uploader" method="post">
     Choose a picture to upload: <input type="file" name="uploadedfile"><br/>
     <input type="submit" value="Upload File">
 

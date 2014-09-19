@@ -81,9 +81,9 @@
 
         include 'albums_edit.php';
      });
-  $klein->respond('POST', '/albums/add', function ($request, $response, $service) use ($smarty) {
+  $klein->respond('POST', '/uploader', function ($request, $response, $service) use ($smarty) {
 
-        include 'add.php';
+        include 'uploader.php';
      });
 
    $klein->dispatch();
