@@ -19,11 +19,18 @@ load_sql_f = open("test_load_data.sql","w")
 photo_prefix = 'INSERT INTO  Photo ( picid, url, format, photodate )\nVALUES ('
 photo_suffix = ');'
 
-contain_prefix = 'INSERT INTO  Contain ( albumid, picid, caption )\nVALUES ('
+contain_prefix = 'INSERT INTO  Contain ( albumid, picid, caption, sequencenum )\nVALUES ('
 contain_suffix = ');'
 
 os.chdir('../html/static/pictures/')
 pictures = os.listdir('.')
+
+album_sizes = {
+		'sports':0,
+		'football':0,
+		'world':0,
+		'space':0
+	}
 
 for p in pictures:
 	im_f = open(p)
@@ -39,9 +46,10 @@ for p in pictures:
 			(image_picid, image_url, "jpg", image_datetime) \
 					+ photo_suffix
 
-	add_contain_cmd = contain_prefix + "'%s', '%s', '%s'" % \
-			(album_id(image_prefix), image_picid, image_caption) \
+	add_contain_cmd = contain_prefix + "'%s', '%s', '%s', '%s'" % \
+			(album_id(image_prefix), image_picid, image_caption, album_sizes[image_prefix]) \
 					+ contain_suffix
+	album_sizes[image_prefix] += 1
 
 	load_sql_f.write(add_image_cmd + os.linesep)
 	load_sql_f.write(add_contain_cmd + os.linesep)
