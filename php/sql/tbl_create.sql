@@ -8,7 +8,7 @@ FROM information_schema.tables
 WHERE table_schema = 'photo_albums';
 
 
-CREATE TABLE IF NOT EXISTS Users 
+CREATE TABLE IF NOT EXISTS User
 (
     username varchar(20) NOT NULL,
     firstname varchar(20) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS Album
     lastupdated datetime NOT NULL,
     username varchar(20) NOT NULL,
     PRIMARY KEY (albumid),
-    FOREIGN KEY (username) REFERENCES Users(username)
+    FOREIGN KEY (username) REFERENCES User(username)
 );
 
 CREATE TABLE IF NOT EXISTS Photo
@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS Contain
     picid varchar(40) NOT NULL,
     caption varchar(255),
     sequencenum int(40) NOT NULL AUTO_INCREMENT,
+    KEY (sequencenum),
     PRIMARY KEY (albumid, picid),
     FOREIGN KEY (albumid) REFERENCES Album(albumid),
     FOREIGN KEY (picid) REFERENCES Photo(picid)
