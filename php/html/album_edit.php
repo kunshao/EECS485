@@ -121,10 +121,17 @@ ini_set('display_errors', 'On');
 if (isset($_GET['id']))
 {
     $albumid = $_GET['id'];
+
+    echo "<p><a href='/album?id=".$albumid."'>Return to Album</a></p>";
+
     $stmt = $pdo->query(
-        "SELECT picid, caption
-         FROM Contain
-         WHERE albumid = '$albumid' "
+        "SELECT Contain.picid AS picid, Contain.caption AS caption, 
+                Contain.sequencenum AS sequencenum, Photo.url AS url
+         FROM Contain 
+         INNER JOIN Photo
+         WHERE Contain.albumid = '$albumid' 
+         AND Contain.picid = Photo.picid
+         ORDER BY sequencenum ASC"
         );
 
     echo('<table border=0.3>'."\n");
@@ -132,6 +139,12 @@ if (isset($_GET['id']))
     {
         echo "<tr><td>";
         echo(htmlentities($row['caption']));
+        echo "<tr><td>";
+
+        $url     = $row['url'];
+
+        echo "<img src="."/static".$url. " style='width:100px; height:100px;' >";
+
         ?>
         </td><td>
 
