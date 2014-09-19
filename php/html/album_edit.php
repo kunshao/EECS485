@@ -90,7 +90,7 @@ if (isset($_POST["op"]))
                     ':picid' => $picid
                     ));
 
-                if (unlink("static/".$delete_url))
+                if (unlink("static".$delete_url))
                     echo "The photo has been deleted";
                 else
                     echo "There was an error deleting the file, please try again!";
