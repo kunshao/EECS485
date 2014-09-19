@@ -10,7 +10,7 @@
 <p>This is an empty Album.</p>
 {else}
 {foreach $pic_url as $item}
-  	<a href="/pic?id={$item@key}"><img src="{$item}" style="width:90px;"></a>
+  	<a href="/pic?id={$item@key}"><img src="/static{$item}" style="width:90px;"></a>
 {/foreach}
 <br>
 <p><a href="/album/edit?id={$album_id}">Edit photos</a></p>

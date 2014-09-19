@@ -79,6 +79,17 @@ if (isset($_POST["op"]))
                     ':picid'   => $picid 
                     ));
 
+                #--------find delete file url----------
+                $sql = "SELECT url FROM Photo
+                        WHERE picid = :picid";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute(array(
+                    ':picid' => $picid
+                    ));
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $delete_url = $row["url"];
+
+                #--------------------------------------
                 $sql = "DELETE FROM Photo
                         WHERE picid = :picid";
                 $stmt = $pdo->prepare($sql);
@@ -86,6 +97,7 @@ if (isset($_POST["op"]))
                     ':picid' => $picid
                     ));
 
+                unlink("/static".$delete_url);
                 unset($_POST["albumid"]);
                 unset($_POST["picid"]);
             }

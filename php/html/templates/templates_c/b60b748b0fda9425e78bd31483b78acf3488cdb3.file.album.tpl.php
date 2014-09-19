@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 07:11:59
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 07:29:09
          compiled from "/Users/lingboguo/Desktop/EECS485/php/html/templates/templates/album.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:648945330541915f2c47612-15803131%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b60b748b0fda9425e78bd31483b78acf3488cdb3' => 
     array (
       0 => '/Users/lingboguo/Desktop/EECS485/php/html/templates/templates/album.tpl',
-      1 => 1411102696,
+      1 => 1411104547,
       2 => 'file',
     ),
     '13c0edc05b0e9eb60e7cc3549b0721908f7a28bf' => 
@@ -57,7 +57,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
   	<a href="/pic?id=<?php echo $_smarty_tpl->tpl_vars['item']->key;?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['item']->value;?>
+"><img src="/static<?php echo $_smarty_tpl->tpl_vars['item']->value;?>
 " style="width:90px;"></a>
 <?php } ?>
 <br>
