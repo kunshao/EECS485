@@ -56,6 +56,12 @@
      // $smarty->display('album.tpl');
    });
 
+   $klein->respond('POST', '/album/edit\?id=[:albumID]?', function ($request, $response, $service) use ($smarty) {
+      include 'album_edit.php';
+   // $smarty->assign('album_id', $request->albumID);
+   // $smarty->display('album.tpl');
+   });
+
    $klein->respond('GET', '/albums', function ($request, $response, $service) use ($smarty) {
      $smarty->display('albums.tpl');
    });
