@@ -33,10 +33,10 @@
      $smarty->display('index.tpl');
    });
 
-   $klein->respond('GET', '/pic[:id]?', function ($request, $response, $service) use ($smarty) {
-
+   $klein->respond('GET', '/pic\?id=[:picid]?', function ($request, $response, $service) use ($smarty) {
+    include "pic.php";
      // Notice how you can set variables here in the PHP that will get carried into the template files
-     $smarty->assign('picid', $request->id);
+     //$smarty->assign('picid', $request->id);
 
      $smarty->display('pic.tpl');
    });

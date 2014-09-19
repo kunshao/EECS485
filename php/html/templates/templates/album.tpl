@@ -10,7 +10,7 @@
 <p>This is an empty Album.</p>
 {else}
 {foreach $pic_url as $item}
-  	{$item}
+  	<a href="/pic?id={$item@key}">{$item}</a>
   	<br>
 {/foreach}
 <br>
